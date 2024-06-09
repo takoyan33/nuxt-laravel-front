@@ -18,14 +18,14 @@ useHead({
 
 <template>
   <div>
-    <button v-if="auth.isLoggedIn" @click="handleLogout">Logout</button>
+    <v-btn color="primary"  v-if="auth.isLoggedIn" @click="handleLogout">Logout</v-btn>
     <pre>{{ auth.user }}</pre>
-    <ul>
-      <li><nuxt-link to="/">Home</nuxt-link></li>
-      <li><nuxt-link to="/login">Login</nuxt-link></li>
-      <li><nuxt-link to="/register">Register</nuxt-link></li>
-      <li><nuxt-link to="/auth-only">Auth only</nuxt-link></li>
-      <li><nuxt-link to="/guest-only">guest only</nuxt-link></li>
+    <h1 class="text-center my-10">Laravel Nuxt App</h1>
+    <ul class="d-flex">
+      <v-btn to="/login mr-3">Login</v-btn>
+      <v-btn to="/register">Register</v-btn>
+      <v-btn to="/auth-only">Auth only</v-btn>
+      <v-btn to="/guest-only">guest only</v-btn>
     </ul>
   </div>
 </template>

@@ -1,27 +1,3 @@
-<template>
-  <div>
-    <pre>{{ auth.user }}</pre>
-    <form @submit.prevent="handleLogin">
-      <label for=""
-        >email
-        <input type="email" v-model="form.email" />
-      </label>
-      <label for=""
-        >password
-        <input type="password" v-model="form.password" />
-      </label>
-      <button>ログイン</button>
-    </form>
-    <ul>
-      <li><nuxt-link to="/">Home</nuxt-link></li>
-      <li><nuxt-link to="/login">Login</nuxt-link></li>
-      <li><nuxt-link to="/register">Register</nuxt-link></li>
-      <li><nuxt-link to="/auth-only">Auth only</nuxt-link></li>
-      <li><nuxt-link to="/guest-only">guest only</nuxt-link></li>
-    </ul>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { useAuthStore } from "~/stores/useAuthStore";
 
@@ -47,3 +23,26 @@ async function handleLogin() {
   console.log(error);
 }
 </script>
+
+<template>
+  <div>
+    <pre>{{ auth.user }}</pre>
+    <form @submit.prevent="handleLogin">
+      <label for="">email </label>
+      <input type="email" v-model="form.email" />
+
+      <label for=""
+        >password
+        <input type="password" v-model="form.password" />
+      </label>
+      <button>ログイン</button>
+    </form>
+    <ul>
+      <li><nuxt-link to="/">Home</nuxt-link></li>
+      <li><nuxt-link to="/login">Login</nuxt-link></li>
+      <li><nuxt-link to="/register">Register</nuxt-link></li>
+      <li><nuxt-link to="/auth-only">Auth only</nuxt-link></li>
+      <li><nuxt-link to="/guest-only">guest only</nuxt-link></li>
+    </ul>
+  </div>
+</template>
