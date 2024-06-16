@@ -18,15 +18,12 @@ useHead({
 
 <template>
   <div>
-    <v-btn color="primary" v-if="auth.isLoggedIn" @click="handleLogout"
-      >ログアウト</v-btn
-    >
+    <h1 class="text-center my-10">プロフィール</h1>
     <ul v-if="auth.user">
       <li>id: {{ auth.user.id }}</li>
       <li>id: {{ auth.user.name }}</li>
       <li>id: {{ auth.user.email }}</li>
     </ul>
-    <h1 class="text-center my-10">Laravel Nuxt App</h1>
     <ul class="d-flex justify-space-around m-auto">
       <v-btn to="/login">ログイン</v-btn>
       <v-btn to="/register">新規登録</v-btn>

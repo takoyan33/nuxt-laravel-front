@@ -26,12 +26,12 @@ useHead({
       <li>id: {{ auth.user.name }}</li>
       <li>id: {{ auth.user.email }}</li>
     </ul>
-    <h1 class="text-center my-10">Laravel Nuxt App</h1>
+    <h1 class="text-center my-10">タスク管理画面</h1>
     <ul class="d-flex justify-space-around m-auto">
-      <v-btn to="/login">ログイン</v-btn>
-      <v-btn to="/register">新規登録</v-btn>
-      <!-- <v-btn to="/auth-only">Auth only</v-btn>
-      <v-btn to="/guest-only">guest only</v-btn> -->
+      <v-btn to="/tasks/new">タスクの登録</v-btn>
+      <v-btn to="/tasks/edit">タスクの編集</v-btn>
+      <v-btn to="/tasks/delete">タスクの削除</v-btn>
+      <v-btn to="/profile">プロフィール</v-btn>
     </ul>
   </div>
 </template>

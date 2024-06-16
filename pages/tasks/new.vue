@@ -26,7 +26,7 @@ useHead({
       <li>id: {{ auth.user.name }}</li>
       <li>id: {{ auth.user.email }}</li>
     </ul>
-    <h1 class="text-center my-10">Laravel Nuxt App</h1>
+    <h1 class="text-center my-10">タスクの登録</h1>
     <ul class="d-flex justify-space-around m-auto">
       <v-btn to="/login">ログイン</v-btn>
       <v-btn to="/register">新規登録</v-btn>
