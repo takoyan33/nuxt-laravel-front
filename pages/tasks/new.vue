@@ -1,10 +1,28 @@
 <script setup lang="ts">
-const auth = useAuthStore();
+const task = useTaskStore();
 
-async function handleLogout() {
-  await auth.logout();
-}
+const form = ref({
+  name: "aaaaaaaa",
+});
 
+const handleTaskRegister = async () => {
+  await useApiFetch("/sanctum/csrf-cookie");
+  const data = await useApiFetch("/api/v1/tasks", {
+    method: "POST",
+    body: {
+      name: "aaaa",
+    },
+  });
+
+  console.log(data);
+
+  if (!error.value) {
+    alert("タスクの登録が完了しました");
+    await navigateTo("/tasks");
+  } else {
+    alert("タスクの登録に失敗しました");
+  }
+};
 useHead({
   title: "トップ - Laravel App",
   meta: [
@@ -18,20 +36,13 @@ useHead({
 
 <template>
   <div>
-    <v-btn color="primary" v-if="auth.isLoggedIn" @click="handleLogout"
-      >ログアウト</v-btn
-    >
-    <ul v-if="auth.user">
-      <li>id: {{ auth.user.id }}</li>
-      <li>id: {{ auth.user.name }}</li>
-      <li>id: {{ auth.user.email }}</li>
-    </ul>
     <h1 class="text-center my-10">タスクの登録</h1>
-    <ul class="d-flex justify-space-around m-auto">
-      <v-btn to="/login">ログイン</v-btn>
-      <v-btn to="/register">新規登録</v-btn>
-      <!-- <v-btn to="/auth-only">Auth only</v-btn>
-      <v-btn to="/guest-only">guest only</v-btn> -->
-    </ul>
+    <v-form @submit.prevent="handleTaskRegister">
+      <label for="name">タスク名 必須</label>
+      <v-text-field id="name" type="text" v-model="form.name" />
+      <div class="text-center m-auto w-100">
+        <v-btn type="submit" color="primary">登録</v-btn>
+      </div>
+    </v-form>
   </div>
 </template>

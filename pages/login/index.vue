@@ -24,7 +24,7 @@ const handleLogin = async () => {
     alert("ログインが完了しました");
     await navigateTo("/tasks/");
   } else {
-    alert("登録に失敗しました");
+    alert("ログインに失敗しました");
   }
 };
 </script>
