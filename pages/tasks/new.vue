@@ -2,27 +2,26 @@
 const task = useTaskStore();
 
 const form = ref({
-  name: "aaaaaaaa",
+  name: "",
 });
 
 const handleTaskRegister = async () => {
   await useApiFetch("/sanctum/csrf-cookie");
   const data = await useApiFetch("/api/v1/tasks", {
     method: "POST",
-    body: {
-      name: "aaaa",
-    },
+    body: form.value,
   });
 
   console.log(data);
 
-  if (!error.value) {
+  if (data) {
     alert("タスクの登録が完了しました");
     await navigateTo("/tasks");
   } else {
     alert("タスクの登録に失敗しました");
   }
 };
+
 useHead({
   title: "トップ - Laravel App",
   meta: [

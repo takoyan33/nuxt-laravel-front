@@ -6,7 +6,7 @@ async function handleLogout() {
 }
 
 useHead({
-  title: "トップ - Laravel App",
+  title: "プロフィール - Laravel App",
   meta: [
     {
       name: "description",
@@ -23,12 +23,6 @@ useHead({
       <li>id: {{ auth.user.id }}</li>
       <li>id: {{ auth.user.name }}</li>
       <li>id: {{ auth.user.email }}</li>
-    </ul>
-    <ul class="d-flex justify-space-around m-auto">
-      <v-btn to="/login">ログイン</v-btn>
-      <v-btn to="/register">新規登録</v-btn>
-      <!-- <v-btn to="/auth-only">Auth only</v-btn>
-      <v-btn to="/guest-only">guest only</v-btn> -->
     </ul>
   </div>
 </template>
