@@ -30,8 +30,6 @@ useHead({
     <ul class="d-flex justify-space-around m-auto">
       <v-btn to="/tasks/all">タスク一覧</v-btn>
       <v-btn to="/tasks/new">タスクの登録</v-btn>
-      <v-btn to="/tasks/edit">タスクの編集</v-btn>
-      <v-btn to="/tasks/delete">タスクの削除</v-btn>
       <v-btn to="/profile">プロフィール</v-btn>
     </ul>
   </div>

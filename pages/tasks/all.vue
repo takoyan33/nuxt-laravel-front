@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data, error } = useFetch("http://localhost/api/v1/tasks", {
+const { data, error } = await useFetch("http://localhost/api/v1/tasks", {
   method: "GET",
 });
 
@@ -57,8 +57,7 @@ useHead({
     <h1 class="text-center my-10">タスク一覧</h1>
     <p class="text-center">全{{ tasks.length }}件</p>
     <li v-for="task in tasks" :key="task.id">
-      {{ task.name }}
-      <v-btn @click="handleEdit(task.id)" color="green" class="mx-4">編集</v-btn>
+      <nuxt-link :href="`/tasks/${task.id}/`"> {{ task.name }}</nuxt-link>
       <v-btn @click="handleDelete(task.id)" color="red">削除</v-btn>
     </li>
   </div>
